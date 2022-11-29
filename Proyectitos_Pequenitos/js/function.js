@@ -1,4 +1,3 @@
-
 /*Description of returnArrayTimeToUnlock: 
 Dada una inversión 'x' que cuesta un determinado valor comprar: unlockPrice
 Y dado el salario mensual actual que tenemos: basicIncome
@@ -36,55 +35,60 @@ y          returnArrayTimeToUnlockTillTimeToUnlockIsEqualTo(), se corresponde a 
 //Duda: en js para que sirve asignar una función a una variable
 //es una cosa bastante, especial, en qué casos se puede usar????
 
+function returnArrayTimeToUnlockTillTimeToUnlockIsEqualTo(
+  unlockPrice,
+  baseIncome,
+  monthlyIncrement,
+  desiredTimeToUnlock
+) {
+  //desiredTimeToUnlock is in months
+  //inicializaciones
+  var timeToUnlock = unlockPrice / baseIncome;
+  var arrayOfTimesToUnlock = [];
 
-function returnArrayTimeToUnlockTillTimeToUnlockIsEqualTo(unlockPrice,baseIncome,monthlyIncrement,desiredTimeToUnlock){//desiredTimeToUnlock is in months
-    //inicializaciones
-    var timeToUnlock= unlockPrice/baseIncome
-    var arrayOfTimesToUnlock=[]
-
-    //Calculate timeToUnlocks...untill. Basic income will become basic salary+monthly increment.
-    while (timeToUnlock>=desiredTimeToUnlock){
-        arrayOfTimesToUnlock.push(timeToUnlock)
-        baseIncome=baseIncome+monthlyIncrement
-        timeToUnlock=unlockPrice/baseIncome
-    }
-    return arrayOfTimesToUnlock
+  //Calculate timeToUnlocks...untill. Basic income will become basic salary+monthly increment.
+  while (timeToUnlock >= desiredTimeToUnlock) {
+    arrayOfTimesToUnlock.push(timeToUnlock);
+    baseIncome = baseIncome + monthlyIncrement;
+    timeToUnlock = unlockPrice / baseIncome;
+  }
+  return arrayOfTimesToUnlock;
 }
 
+function returnArrayTimeToUnlockTillPassiveIncomeGreaterThan(
+  unlockPrice,
+  baseIncome,
+  monthlyIncrement,
+  desiredPassiveIncome
+) {
+  //inicializaciones
+  var initialBasicIncome = baseIncome;
+  var timeToUnlock = unlockPrice / baseIncome;
+  var arrayOfTimesToUnlock = [];
 
-function returnArrayTimeToUnlockTillPassiveIncomeGreaterThan(unlockPrice,baseIncome,monthlyIncrement,desiredPassiveIncome){
-     //inicializaciones
-     var initialBasicIncome=baseIncome
-     var timeToUnlock= unlockPrice/baseIncome
-     var arrayOfTimesToUnlock=[]
+  var passiveIncome = baseIncome - initialBasicIncome;
 
-     var passiveIncome=baseIncome-initialBasicIncome
-
-     //CalculateTimeToUnlocks...untill. Base income will become basic salary+monthly increment
-     while(passiveIncome<desiredPassiveIncome){
-        arrayOfTimesToUnlock.push(timeToUnlock)
-        baseIncome=baseIncome+monthlyIncrement
-        timeToUnlock=unlockPrice/baseIncome
-        passiveIncome=baseIncome-initialBasicIncome
-        
-     }
-     return arrayOfTimesToUnlock
-
+  //CalculateTimeToUnlocks...untill. Base income will become basic salary+monthly increment
+  while (passiveIncome < desiredPassiveIncome) {
+    arrayOfTimesToUnlock.push(timeToUnlock);
+    baseIncome = baseIncome + monthlyIncrement;
+    timeToUnlock = unlockPrice / baseIncome;
+    passiveIncome = baseIncome - initialBasicIncome;
+  }
+  return arrayOfTimesToUnlock;
 }
-
 
 //Format function, this function formats the array data so it can be interpreted by the JSCharting library..
 // it's an array of x and y arrays :[[x1,y1],[x2,y2],[x3,y3]...]
 
-function formatVector(array){
-    var formattedArray=[]
-    for (let i = 0; i < array.length; i++){
-        var x=i
-        var y=array[i]
-        var xyArray=[x,y]
-        formattedArray.push(xyArray)
-        console.log(formattedArray)
-
-    }
-    return formattedArray
+function formatVector(array) {
+  var formattedArray = [];
+  for (let i = 0; i < array.length; i++) {
+    var x = i;
+    var y = array[i];
+    var xyArray = [x, y];
+    formattedArray.push(xyArray);
+    console.log(formattedArray);
+  }
+  return formattedArray;
 }
