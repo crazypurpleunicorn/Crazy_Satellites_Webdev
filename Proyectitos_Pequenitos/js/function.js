@@ -88,7 +88,6 @@ function formatVector(array) {
     var y = array[i];
     var xyArray = [x, y];
     formattedArray.push(xyArray);
-    console.log(formattedArray);
   }
   return formattedArray;
 }

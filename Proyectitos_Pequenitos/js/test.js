@@ -8,8 +8,4 @@ var monthlyIncrement = 100;
 var timeToUnlock = 6; //meses
 var baseIncome = 1500; //al mes
 
-console.log("hallo");
-
-//console.log(x)
-
 //var array=returnArrayTimeToUnlockTillTimeToUnlockIsEqualTo(inversionCost,baseIncome,monthlyIncrement,timeToUnlock)
