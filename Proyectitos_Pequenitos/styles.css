@@ -1,0 +1,32 @@
+
+/*quito el margen preestablecido del body, así consigo que se aproveche toda la pagina
+Tambien aplico box-sizing, para que todos los elementos(todos los que puedan heredarán del body) 
+que puedan modificar su width/height(que en principio aplica únicamente al contenido)
+ahora se refiera al width/height del conjunto contenido+padding+border*/
+body{
+    margin: 0;
+    box-sizing: border-box;
+}
+/*creo unos estilos básicos para que apliquen a todos los inputs*/
+input{
+    border-width: 2px;
+    width: 100px;
+    margin: 10px;
+
+
+}
+
+/* se usa esta clase para centrar elemento hijo respecto a su padre*/
+.centrado{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* esto aplica a los h4 que declase 'dentrodeform'*/
+
+h4.dentrodelform{
+    font-size: 10px;
+    width:50%;
+    text-align: center;
+    
+}

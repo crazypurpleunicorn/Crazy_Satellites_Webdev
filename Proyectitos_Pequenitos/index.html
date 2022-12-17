@@ -3,19 +3,93 @@
   <head>
     <meta charset="UTF-8" />
     <title>Step 1-a</title>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <div id="chartDiv" style="width: 50%; height: 300px; margin: 0 auto"></div>
     <div id="inputDiv" style="width: 50%; height: 300px; margin: 75px auto">
+    
       <form id="frm1">
-        Value of asset: <input type="text" name="valueofasset" id="input1" /><br />
-        Base income(salary): <input type="text" name="salary" id="input2" /><br />
-        Monthly gain: <input type="text" name="monthlygain" id="input3" /><br />
-        Desired time to unlock asset:
-        <input type="text" name="timetounlock" id="input4" /><br /><br />
-        <input id="btn1" type="button" value="plot graph" />
+        <h4 class="centrado dentrodelform">Value of asset</h4>
+        <input class="centrado" type="text" name="valueofasset" id="input1" /><br />
+        <h4 class="centrado dentrodelform">Base income(salary):</h4>
+        <input class="centrado" type="text" name="salary" id="input2" /><br />
+        <h4 class="centrado dentrodelform">Monthly gain: </h4>
+        <input class="centrado" type="text" name="monthlygain" id="input3" /><br />
+        <h4 class="centrado dentrodelform">Desired time to unlock asset: </h4>
+        <input class="centrado" type="text" name="timetounlock" id="input4" /><br /><br />
+        <input class="centrado" id="btn1" type="button" value="plot graph" />
       </form>
     </div>
+
+
+    <!-- PLAYING AROUND WITH SVG ELEMENTS -->
+
+    <!-- <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"> -->
+      <!-- Using g to inherit presentation attributes -->
+      <!-- <g fill="white" stroke="green" stroke-width="5">
+        <circle cx="40" cy="40" r="25" />
+        <circle cx="60" cy="60" r="25" />
+      </g>
+    </svg> -->
+
+    <!-- <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"> -->
+      <!--
+      with relative unit such as percentage, the visual size
+      of the square looks unchanged regardless of the viewBox
+      -->
+      <!-- <rect x="0" y="0" width="100%" height="100%" /> -->
+    
+      <!--
+      with a large viewBox the circle looks small
+      as it is using user units for the r attribute:
+      4 resolved against 100 as set in the viewBox
+      -->
+      <!-- <circle cx="50%" cy="50%" r="4" fill="white" />
+    </svg> -->
+
+    <!-- <svg width="200" height="250" version="1.1" xmlns="http://www.w3.org/2000/svg">
+
+      <rect x="10" y="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5"/>
+      <rect x="60" y="10" rx="10" ry="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5"/>
+    
+      <circle cx="25" cy="75" r="20" stroke="red" fill="transparent" stroke-width="5"/>
+      <ellipse cx="75" cy="75" rx="20" ry="5" stroke="red" fill="transparent" stroke-width="5"/>
+    
+      <line x1="10" x2="50" y1="110" y2="150" stroke="orange" stroke-width="5"/>
+      <polyline points="60 110 65 120 70 115 75 130 80 125 85 140 90 135 95 150 100 145"
+          stroke="orange" fill="transparent" stroke-width="5"/>
+    
+      <polygon points="50 160 55 180 70 180 60 190 65 205 50 195 35 205 40 190 30 180 45 180"
+          stroke="green" fill="pink" stroke-width="0.5"/>
+    
+      <path d="M20,230 Q40,205 50,230 T90,230" fill="none" stroke="blue" stroke-width="5"/>
+    </svg>
+
+    <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+
+      <path d="M 10 10 h 2 V 90 H 10 L 10 10" fill="none" stroke="black"/> -->
+    
+      <!-- Points -->
+      <!-- <circle cx="10" cy="10" r="2" fill="red"/>
+      <circle cx="90" cy="90" r="2" fill="red"/>
+      <circle cx="90" cy="10" r="2" fill="red"/>
+      <circle cx="10" cy="90" r="2" fill="red"/> -->
+    
+    <!-- </svg> -->
+
+    <div id="inputDiv2" style="width: 50%; height: 300px; margin: 75px auto">
+      <form id="frm2">
+        widthofrectangularsvg: <input type="text" name="width" id="input5" /><br />
+        heightofrectangularsvg<input type="text" name="height" id="input6" /><br />
+        <input id="btn2" type="button" value="submit width and height" />
+        <input id="btn3" type="button" value="add data points" />
+      </form>
+      <div id="divtofillwithsvg" style="width: 50%; margin: 20px"></div>
+    </div>
+
+
+    
   </body>
   <script src="https://code.jscharting.com/2.9.0/jscharting.js"></script>
   <script src="js/index.js"></script>

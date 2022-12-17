@@ -91,3 +91,77 @@ function formatVector(array) {
   }
   return formattedArray;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///SVG FUNCTIONS
+
+function createSVGRectangle(widthinpx,heightinpx){
+  let width=widthinpx.toString();
+  let height=heightinpx.toString();
+  let string=`"M 0 0 h ${width} v ${height} h -${width}  v -${height}" fill="none" stroke="black"></path>`
+  let svgstring=`<svg width=${width} height=${height}>`+"\n\t<path d="+string+"\n</svg>";
+  return svgstring
+  /*<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+
+  <path d="M 10 10 h 2 V 90 H 10 L 10 10" fill="none" stroke="black"/>
+
+  <!-- Points -->
+  <circle cx="10" cy="10" r="2" fill="red"/>
+  <circle cx="90" cy="90" r="2" fill="red"/>
+  <circle cx="90" cy="10" r="2" fill="red"/>
+  <circle cx="10" cy="90" r="2" fill="red"/>
+</svg>*/
+}
+
+
+
+function returnStringOfCircles(arrayofdata){
+  let stringofcircles="";
+  for (let i = 0; i < arrayofdata.length; i++) {
+    
+    let x = i;
+    let y = arrayofdata[i];
+    ///y will have to suffer a 'transformation' since y=0 is located at the bottom of the svg
+    //in addition numbers will have to be rounded up to the unity because 1.14 pixels does not make much sense
+    y=Math.round(y);
+    //what height has our svg?
+    box=document.getElementById("divtofillwithsvg").childNodes[0].getBBox();
+    heightOfSVG=box.height;
+    //recalculate y ... from bottom
+    y=heightOfSVG-y
+
+    
+    let string = `<circle cx=${x} cy=${y} r="1" fill="red"/>`+"\n";
+    stringofcircles=stringofcircles.concat(string);
+    
+    
+  }
+  return stringofcircles;
+
+
+}
+
+function transformYForSVG(oldy){
+
+}
